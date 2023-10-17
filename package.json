@@ -1,15 +1,28 @@
 {
-  "name": "app",
-  "version": "1.0.50",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "elysia": "latest"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "module": "src/index.js"
+	"name": "app",
+	"version": "1.0.50",
+	"module": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "concurrently --names \"BUN,TAILWIND\" -c \"blue.bold,cyan.bold\" \"bun run server:dev\" \"bun run tw:dev\"",
+		"server:dev": "bun run --watch ./src/index.tsx",
+		"tw": "bunx tailwindcss -i ./src/styles/index.css -o ./public/index.css",
+		"tw:dev": "bunx tailwindcss -i ./src/styles/index.css -o ./public/index.css --watch",
+		"format": "bunx prettier --write ."
+	},
+	"dependencies": {
+		"@elysiajs/cors": "^0.7.1",
+		"@elysiajs/html": "^0.7.3",
+		"@elysiajs/static": "^0.7.1",
+		"@evilmartians/harmony": "^1.1.0",
+		"elysia": "latest"
+	},
+	"devDependencies": {
+		"@ianvs/prettier-plugin-sort-imports": "^4.1.1",
+		"bun-types": "latest",
+		"concurrently": "^8.2.1",
+		"prettier": "^3.0.3",
+		"prettier-plugin-tailwindcss": "^0.5.6",
+		"tailwindcss": "^3.3.3"
+	}
 }
