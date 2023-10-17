@@ -5,6 +5,8 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "concurrently --names \"BUN,TAILWIND\" -c \"blue.bold,cyan.bold\" \"bun run server:dev\" \"bun run tw:dev\"",
+		"build": "bun run tw",
+		"start": "bun run ./src/index.tsx",
 		"server:dev": "bun run --watch ./src/index.tsx",
 		"tw": "bunx tailwindcss -i ./src/styles/index.css -o ./public/index.css",
 		"tw:dev": "bunx tailwindcss -i ./src/styles/index.css -o ./public/index.css --watch",
