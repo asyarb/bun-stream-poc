@@ -1,6 +1,6 @@
 type Props = {
 	head?: JSX.Element
-	children?: JSX.Element
+	children?: JSX.Element | JSX.Element[]
 }
 
 export const Layout = (props: Props) => {
